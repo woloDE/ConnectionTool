@@ -1,0 +1,34 @@
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
+public class ButtonGui {
+
+    public static void main(String[] args) {
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                JFrame f = new JFrame("Button GUI");
+                JButton b = new JButton("CLICK");
+
+                // adjust numbers to requirement
+                b.setMargin(new Insets(12, 35, 12, 35));
+                // since a button has a border, we need a panel to which
+                // we can add a 2nd (empty) border.
+                JPanel p = new JPanel(new GridLayout());
+                // adjust numbers to requirement
+                p.setBorder(new EmptyBorder(100, 130, 100, 130));
+                p.add(b);
+                f.add(p);
+                f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                f.setLocationByPlatform(true);
+
+                f.pack();
+                f.setMinimumSize(f.getSize());
+
+                f.setVisible(true);
+            }
+        };
+        SwingUtilities.invokeLater(r);
+    }
+}
